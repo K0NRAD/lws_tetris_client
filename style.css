@@ -1,0 +1,113 @@
+:root {
+    --cell-size: calc(75vh / 20);
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: radial-gradient(circle at 20%, #f23333, #f233ef, #339cf2, #209151);
+    background-size: 500%, 500%;
+    animation: gradient-bg 30s ease-in-out infinite;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(10, var(--cell-size));
+    grid-template-rows: repeat(20, var(--cell-size));
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+#game-grid div.base {
+    height: 0;
+}
+
+.cell {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.scorepad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0 2rem;
+    margin: auto;
+    margin-top: 0;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+}
+
+.scorepad > .score,
+.score-title {
+    padding-top: 20px;
+    color: white;
+    font-weight: 100;
+}
+
+.scorepad > .score {
+    font-size: 1.8em;
+    font-weight: 100;
+}
+
+#preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, calc(var(--cell-size) * 0.75));
+    grid-template-rows: repeat(4, calc(var(--cell-size) * 0.75));
+}
+
+#start-stop {
+    padding: 10px;
+    background-color: #f23333;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#start-stop:hover {
+    filter: invert(100%);
+}
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0, 30%;
+    }
+
+    25% {
+        background-position: 50%, 90%;
+    }
+
+    50% {
+        background-position: 100%, 50%;
+    }
+
+    75% {
+        background-position: 50%, 10%;
+    }
+
+    100% {
+        background-position: 0, 30%;
+    }
+}
